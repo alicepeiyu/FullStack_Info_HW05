@@ -1,4 +1,4 @@
-
+{% extends "base.html" %}
 
 <!-- 1. extend from base-->
 
@@ -8,13 +8,14 @@
 
 {% block header %}
 	<!-- super function here -->
+	{{ super() }}
 	<form action="logout" id="logout">
-		<span id="username">Logged in as {{ name }}</span>
+		<span id="username">Logged in as {{ username }}</span>
 		<input class="action-button" id="logout-button" type="submit" value="Logout">
 	</form>
 {% endblock %}
 
-
+{% block content %}
 <!-- 1. extend from content block from the base-->
 	<div class="main-container">
 		<h3>Your Favorites</h3>
@@ -27,9 +28,10 @@
 
 		<h3>Front-End Improvement</h3>
 		<label class="survey-item sm-label">What was your front end proficiency before IO Lab?
-			<input type="range" min="1" max="5" step=".5" name="front-end-before" id="fe-before"><span></span></label>
+			<input type="range" min="1" max="5" step=".5" name="front-end-before" id="feBefore"><span></span></label>
 		<label class="survey-item sm-label">How about after the front-end module?
-			<input type="range" min="1" max="5" step=".5" name="front-end-after" id="fe-after"><span></span></label><br><br>
+			<input type="range" min="1" max="5" step=".5" name="front-end-after" id="feAfter"><span></span></label><br><br>
 
 		<button class="action-button" id="submit-survey">Submit</button>
 </div>
+{% endblock %}
